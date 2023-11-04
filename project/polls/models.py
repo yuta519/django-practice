@@ -10,6 +10,9 @@ class Question(models.Model):
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
+    def __str__(self) -> str:
+        return f'{self.pub_date} {self.question_text}'
+
 
 
 class Choice(models.Model):

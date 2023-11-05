@@ -9,9 +9,6 @@ class Status(models.IntegerChoices):
     REVIEW = 4, "Review"
     DONE = 5, "Done"
 
-    def __str__(self):
-        return [i.value for i in Status]
-
 
 class User(models.Model):
     name = models.CharField(max_length=100, blank=False, null=False)

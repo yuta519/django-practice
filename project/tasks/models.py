@@ -24,7 +24,11 @@ class Ticket(models.Model):
     title = models.CharField(max_length=200)
     status = models.IntegerField(choices=Status.choices, default=Status.TODO)
     assigned_to = models.ForeignKey(
-        User, related_name="user", on_delete=models.CASCADE, null=True, default=None
+        User, related_name="user",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        default=None
     )
     created_at = models.DateField("Created Time",  auto_now_add=True)
     updated_at = models.DateField("Updated Time",  auto_now=True)
@@ -33,5 +37,9 @@ class Ticket(models.Model):
        if self.status != Status.TODO and not self.assigned_to:
         raise ValidationError("You must set assigner unless status is ToDo.")
 
+    def save(self, *args, **kwargs):
+        self.clean()
+        super(Ticket, self).save(*args, **kwargs)
+
     def __str__(self):
-        return f'{self.title} by {self.assigned_to.name}'
+        return self.title

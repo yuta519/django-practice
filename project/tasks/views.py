@@ -16,3 +16,8 @@ class UserDetailView(generic.DetailView):
 class TicketIndexView(generic.ListView):
     model = Ticket
     template_name ="tasks/ticket_list.html"
+
+
+class TicketDetailView(generic.DetailView):
+    model = Ticket
+    template_name ="tasks/ticket_detail.html"

@@ -5,9 +5,9 @@
 </di>
 <br/>
 <di>
-  <a href="{% url 'tasks:ticket_update' %}">Update this ticket</a>
+  <a href="{% url 'tasks:ticket_update' ticket.id %}">Update this ticket</a>
 </di>
 <br/>
 <di>
-  <a href="{% url 'tasks:assign' %}">Assign this ticket to someone</a>
+  <a href="{% url 'tasks:assign' ticket.id %}">Assign this ticket to someone</a>
 </di>

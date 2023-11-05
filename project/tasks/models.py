@@ -37,6 +37,7 @@ class Ticket(models.Model):
        if self.status != Status.TODO and not self.assigned_to:
         raise ValidationError("You must set assigner unless status is ToDo.")
 
+    # https://stackoverflow.com/questions/4269605/django-override-save-for-model-only-in-some-cases
     def save(self, *args, **kwargs):
         self.clean()
         super(Ticket, self).save(*args, **kwargs)

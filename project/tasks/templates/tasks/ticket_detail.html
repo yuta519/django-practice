@@ -1,1 +1,13 @@
-{{ ticket }}
+<di>{{ ticket }}</di>
+<br/>
+<di>
+  <a href="{% url 'tasks:tickets' %}">Go back to tickets</a>
+</di>
+<br/>
+<di>
+  <a href="{% url 'tasks:ticket_update' %}">Update this ticket</a>
+</di>
+<br/>
+<di>
+  <a href="{% url 'tasks:assign' %}">Assign this ticket to someone</a>
+</di>
